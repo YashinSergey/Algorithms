@@ -31,10 +31,9 @@ public class Main_HW2 {
         array1 = new MyArrayImplHW<>(MAX_NUM);
         array2 = new MyArrayImplHW<>(MAX_NUM);
         array3 = new MyArrayImplHW<>(MAX_NUM);
-
-        int num = (int) (Math.random() * MAX_NUM);
-
+        
         for (int i = 0; i < MAX_NUM; i++) {
+            int num = (int) (Math.random() * MAX_NUM);
             array1.add(num);
             array2.add(num);
             array3.add(num);
