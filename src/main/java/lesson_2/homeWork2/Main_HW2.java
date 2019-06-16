@@ -9,10 +9,12 @@ public class Main_HW2 {
      * Время выполнения поиска методом вставки: 16 304 мс.
      */
 
-    private int maxNum = 100_000;
+    private final static int MAX_NUM = 100_000;
+
     private static MyArrayImplHW<Integer> array1;
     private static MyArrayImplHW<Integer> array2;
     private static MyArrayImplHW<Integer> array3;
+
     private long timePoint;
     private long executionTime;
 
@@ -26,14 +28,16 @@ public class Main_HW2 {
     }
 
     private void fillingArrays() {
-        array1 = new MyArrayImplHW<>(maxNum);
-        array2 = new MyArrayImplHW<>(maxNum);
-        array3 = new MyArrayImplHW<>(maxNum);
+        array1 = new MyArrayImplHW<>(MAX_NUM);
+        array2 = new MyArrayImplHW<>(MAX_NUM);
+        array3 = new MyArrayImplHW<>(MAX_NUM);
 
-        for (int i = 0; i < maxNum; i++) {
-            array1.add((int) (Math.random() * maxNum));
-            array2.add(array1.get(i));
-            array3.add(array1.get(i));
+        int num = (int) (Math.random() * MAX_NUM);
+
+        for (int i = 0; i < MAX_NUM; i++) {
+            array1.add(num);
+            array2.add(num);
+            array3.add(num);
         }
     }
 
