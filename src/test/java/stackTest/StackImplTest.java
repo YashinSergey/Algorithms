@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestStackImpl {
+public class StackImplTest {
 
     private Stack<Integer> stack;
     private int lastValue;
