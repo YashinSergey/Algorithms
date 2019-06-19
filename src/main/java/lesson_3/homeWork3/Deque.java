@@ -10,7 +10,11 @@ public interface Deque<E> extends Queue<E> {
 
 
 
-    public E removeLast();
-    public E removeFirst();
+    E removeLast();
+    E removeFirst();
+
+    E getFirst();
+    E getLast();
+
 
 }

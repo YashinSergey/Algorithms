@@ -74,6 +74,15 @@ public class DequeImpl<E> extends QueueImpl<E> implements Deque<E> {
         return removedValue;
     }
 
+    @Override
+    public E getFirst() {
+        return data[head];
+    }
+
+    @Override
+    public E getLast() {
+        return data[tail];
+    }
 
     public static void main(String[] args) {
         Deque<Integer> deque = new DequeImpl<>(10);
