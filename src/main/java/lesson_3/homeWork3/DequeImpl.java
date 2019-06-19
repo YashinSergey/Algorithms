@@ -2,9 +2,6 @@ package lesson_3.homeWork3;
 
 import lesson_3.queue.QueueImpl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class DequeImpl<E> extends QueueImpl<E> implements Deque<E> {
 
     public DequeImpl(int maxSize) {
