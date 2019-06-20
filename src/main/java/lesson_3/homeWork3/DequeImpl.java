@@ -55,23 +55,4 @@ public class DequeImpl<E> extends QueueImpl<E> implements Deque<E> {
     public E getLast() {
         return data[tail];
     }
-
-
-    public static void main(String[] args) {
-        Deque<Integer> deque = new DequeImpl<>(10);
-
-        deque.insertLast(4);  // 4
-        deque.insertFirst(5); // 54
-        deque.insertLast(3);  // 543
-        deque.insertFirst(6); // 6543
-        deque.insertLast(2);  // 65432
-        deque.insertFirst(8); // 865432
-        deque.insertLast(1);  // 8654321
-        deque.insertFirst(7); // 78654321
-
-        while (!deque.isEmpty()) {
-            System.out.println(deque.removeFirst());
-        }
-
-    }
 }
