@@ -4,71 +4,46 @@ import lesson_3.queue.QueueImpl;
 
 public class DequeImpl<E> extends QueueImpl<E> implements Deque<E> {
 
+
     public DequeImpl(int maxSize) {
         super(maxSize);
     }
 
     @Override
-    public boolean insertLast(E value) {
-        if (isFull()){
-            return false;
-        }
-
-        if (tail == lastIndex()) {
-            tail = DEFAULT_TAIL;
-        }
-        data[++tail] = value;
-        size++;
-
-        return true;
-    }
-
-    @Override
     public boolean insertFirst(E value) {
-        if (isFull()){
+        if (isFull()) {
             return false;
         }
-        if (head == 0) {
-            head = lastIndex();
+
+        if ( head - 1 < 0) {
+            head = data.length;
         }
 
         data[--head] = value;
         size++;
-
         return true;
+    }
+
+    @Override
+    public boolean insertLast(E value) {
+        return super.insertLast(value);
     }
 
     @Override
     public E removeLast() {
         if (isEmpty()) {
-            return null;
+            return  null;
         }
-        if (tail < 0) {
-            tail = lastIndex();
-        }
+        if (tail < 0)
+            tail = data.length - 1;
 
-        E removedValue = data[tail];
-        data[tail--] = null;
         size--;
-
-        return removedValue;
+        return data[tail--];
     }
 
     @Override
     public E removeFirst() {
-        if (isEmpty()) {
-            return null;
-        }
-
-        if (head == data.length) {
-            head = DEFAULT_HEAD;
-        }
-
-        E removedValue = data[head];
-        data[head++] = null;
-        size--;
-
-        return removedValue;
+        return super.removeFirst();
     }
 
     @Override
@@ -81,20 +56,22 @@ public class DequeImpl<E> extends QueueImpl<E> implements Deque<E> {
         return data[tail];
     }
 
+
     public static void main(String[] args) {
         Deque<Integer> deque = new DequeImpl<>(10);
 
-        deque.insertLast(4);
-        deque.insertFirst(6);
-        deque.insertLast(3);
-        deque.insertLast(2);
-        deque.insertLast(1);
-        deque.insertFirst(8);
-        deque.insertFirst(9);
-        deque.insertFirst(10);
+        deque.insertLast(4);  // 4
+        deque.insertFirst(5); // 54
+        deque.insertLast(3);  // 543
+        deque.insertFirst(6); // 6543
+        deque.insertLast(2);  // 65432
+        deque.insertFirst(8); // 865432
+        deque.insertLast(1);  // 8654321
+        deque.insertFirst(7); // 78654321
 
         while (!deque.isEmpty()) {
-            System.out.println(deque.removeLast());
+            System.out.println(deque.removeFirst());
         }
+
     }
 }

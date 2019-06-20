@@ -19,7 +19,7 @@ public class QueueImpl<E> implements Queue<E> {
     }
 
     @Override //O(1)
-    public boolean insert(E value) {
+    public boolean insertLast(E value) {
         if (isFull()){
             return false;
         }
@@ -38,7 +38,7 @@ public class QueueImpl<E> implements Queue<E> {
     }
 
     @Override //O(1)
-    public E remove() {
+    public E removeFirst() {
         if (isEmpty()) {
             return null;
         }

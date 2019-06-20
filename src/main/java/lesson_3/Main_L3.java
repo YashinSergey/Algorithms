@@ -17,19 +17,19 @@ public class Main_L3 {
 //        queueTest();
 
         Queue<Integer> queue = new PriorityQueue<>(5);
-        System.out.println(queue.insert(3));
-        System.out.println(queue.insert(5));
-        System.out.println(queue.insert(1));
-        System.out.println(queue.insert(2));
-        System.out.println(queue.insert(6));
-        System.out.println(queue.insert(4));
+        System.out.println(queue.insertLast(3));
+        System.out.println(queue.insertLast(5));
+        System.out.println(queue.insertLast(1));
+        System.out.println(queue.insertLast(2));
+        System.out.println(queue.insertLast(6));
+        System.out.println(queue.insertLast(4));
 
         System.out.println("Queue peek is " + queue.peek());
         System.out.println("Queue size is " + queue.size());
         System.out.println("Queue is full: " + queue.isFull());
 
         while (!queue.isEmpty()){
-            System.out.println(queue.remove());
+            System.out.println(queue.removeFirst());
         }
 
         System.out.println("Queue size is " + queue.size());
@@ -39,19 +39,19 @@ public class Main_L3 {
 
     private static void queueTest() {
         Queue<Integer> queue = new QueueImpl<>(5);
-        System.out.println(queue.insert(1));
-        System.out.println(queue.insert(2));
-        System.out.println(queue.insert(3));
-        System.out.println(queue.insert(4));
-        System.out.println(queue.insert(5));
-        System.out.println(queue.insert(6));
+        System.out.println(queue.insertLast(1));
+        System.out.println(queue.insertLast(2));
+        System.out.println(queue.insertLast(3));
+        System.out.println(queue.insertLast(4));
+        System.out.println(queue.insertLast(5));
+        System.out.println(queue.insertLast(6));
 
         System.out.println("Queue peek is " + queue.peek());
         System.out.println("Queue size is " + queue.size());
         System.out.println("Queue is full: " + queue.isFull());
 
         while (!queue.isEmpty()){
-            System.out.println(queue.remove());
+            System.out.println(queue.removeFirst());
         }
 
         System.out.println("Queue size is " + queue.size());

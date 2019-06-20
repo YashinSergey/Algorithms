@@ -18,10 +18,10 @@ public class QueueImplTest {
     }
 
     @Test
-    public void insertTest(){
+    public void insertLastTest(){
         boolean bool = false;
         lastValue = 9;
-        queue.insert(lastValue);
+        queue.insertLast(lastValue);
         if (queue.peek().equals(lastValue)){
             bool = true;
         }
@@ -31,15 +31,15 @@ public class QueueImplTest {
     @Test
     public void peekTest(){
         lastValue = 4;
-        queue.insert(lastValue);
+        queue.insertLast(lastValue);
         Assert.assertEquals(lastValue, (int) queue.peek());
     }
 
     @Test
-    public void popTest(){
+    public void removeFirstTest(){
         lastValue = 5;
-        queue.insert(lastValue);
-        Assert.assertEquals(lastValue, (int) queue.remove());
+        queue.insertLast(lastValue);
+        Assert.assertEquals(lastValue, (int) queue.removeFirst());
     }
 
     @Test
@@ -48,7 +48,7 @@ public class QueueImplTest {
         size = 0;
 
         for (size = 0; size < 10; size++) {
-            queue.insert(lastValue);
+            queue.insertLast(lastValue);
             lastValue++;
         }
 
@@ -60,13 +60,13 @@ public class QueueImplTest {
         lastValue = 7;
 
         for (int i = 0; i < 10; i++) {
-            queue.insert(lastValue);
+            queue.insertLast(lastValue);
             lastValue++;
         }
 
         Assert.assertTrue(queue.isFull());
 
-        queue.remove();
+        queue.removeFirst();
 
         Assert.assertFalse(queue.isFull());
     }
@@ -75,7 +75,7 @@ public class QueueImplTest {
     public void isEmptyTest(){
         Assert.assertTrue(queue.isEmpty());
 
-        queue.insert(8);
+        queue.insertLast(8);
 
         Assert.assertFalse(queue.isEmpty());
     }
