@@ -1,4 +1,4 @@
-package stackTest;
+package QueueTest;
 
 
 import lesson_3.queue.QueueImpl;
