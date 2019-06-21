@@ -1,5 +1,7 @@
 package lesson_3;
 
+import lesson_3.homeWork3.Deque;
+import lesson_3.homeWork3.DequeImpl;
 import lesson_3.queue.PriorityQueue;
 import lesson_3.queue.Queue;
 import lesson_3.queue.QueueImpl;
@@ -16,42 +18,60 @@ public class Main_L3 {
 
 //        queueTest();
 
+//        priorityQueueTest();
+
+        Deque<Integer> deque = new DequeImpl<>(10);
+
+        deque.insertLast(4);  // 4
+        deque.insertFirst(5); // 54
+        deque.insertLast(3);  // 543
+        deque.insertFirst(6); // 6543
+        deque.insertLast(2);  // 65432
+        deque.insertFirst(8); // 865432
+        deque.insertLast(1);  // 8654321
+        deque.insertFirst(7); // 78654321
+
+        while (!deque.isEmpty()) {
+            System.out.println(deque.removeFirst());
+        }
+    }
+
+    private static void priorityQueueTest() {
         Queue<Integer> queue = new PriorityQueue<>(5);
-        System.out.println(queue.insert(3));
-        System.out.println(queue.insert(5));
-        System.out.println(queue.insert(1));
-        System.out.println(queue.insert(2));
-        System.out.println(queue.insert(6));
-        System.out.println(queue.insert(4));
+        System.out.println(queue.insertLast(3));
+        System.out.println(queue.insertLast(5));
+        System.out.println(queue.insertLast(1));
+        System.out.println(queue.insertLast(2));
+        System.out.println(queue.insertLast(6));
+        System.out.println(queue.insertLast(4));
 
         System.out.println("Queue peek is " + queue.peek());
         System.out.println("Queue size is " + queue.size());
         System.out.println("Queue is full: " + queue.isFull());
 
         while (!queue.isEmpty()){
-            System.out.println(queue.remove());
+            System.out.println(queue.removeFirst());
         }
 
         System.out.println("Queue size is " + queue.size());
         System.out.println("Queue is full: " + queue.isFull());
-
     }
 
     private static void queueTest() {
         Queue<Integer> queue = new QueueImpl<>(5);
-        System.out.println(queue.insert(1));
-        System.out.println(queue.insert(2));
-        System.out.println(queue.insert(3));
-        System.out.println(queue.insert(4));
-        System.out.println(queue.insert(5));
-        System.out.println(queue.insert(6));
+        System.out.println(queue.insertLast(1));
+        System.out.println(queue.insertLast(2));
+        System.out.println(queue.insertLast(3));
+        System.out.println(queue.insertLast(4));
+        System.out.println(queue.insertLast(5));
+        System.out.println(queue.insertLast(6));
 
         System.out.println("Queue peek is " + queue.peek());
         System.out.println("Queue size is " + queue.size());
         System.out.println("Queue is full: " + queue.isFull());
 
         while (!queue.isEmpty()){
-            System.out.println(queue.remove());
+            System.out.println(queue.removeFirst());
         }
 
         System.out.println("Queue size is " + queue.size());
