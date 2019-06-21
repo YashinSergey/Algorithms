@@ -2,9 +2,9 @@ package lesson_3.queue;
 
 public interface Queue<E> {
 
-    boolean insert(E value);
+    boolean insertLast(E value);
 
-    E remove();
+    E removeFirst();
 
     E peek();
 

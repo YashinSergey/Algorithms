@@ -7,7 +7,7 @@ public class PriorityQueue<E extends Object & Comparable<? super E>> extends  Qu
     }
 
     @Override //O(n)
-    public boolean insert(E value) {
+    public boolean insertLast(E value) {
         if (isFull()) {
             return false;
         }
@@ -32,7 +32,7 @@ public class PriorityQueue<E extends Object & Comparable<? super E>> extends  Qu
     }
 
     @Override //O(1)
-    public E remove () {
+    public E removeFirst() {
         return isEmpty() ? null : data[--size];
     }
 
