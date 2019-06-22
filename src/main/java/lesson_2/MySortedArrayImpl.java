@@ -6,6 +6,9 @@ public class MySortedArrayImpl<E extends Object & Comparable<? super E>> extends
         super(initialCapacity);
     }
 
+    public MySortedArrayImpl() {
+    }
+
     @Override // O(n)
     public void add(E value) {
         checkGrow();
