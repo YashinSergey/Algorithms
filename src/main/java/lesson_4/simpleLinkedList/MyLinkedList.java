@@ -1,6 +1,7 @@
 package lesson_4.simpleLinkedList;
 
-public interface MyLinkedList<E> {
+
+public interface MyLinkedList<E> extends Iterable<E> {
 
     void insertFirst(E value);
 
