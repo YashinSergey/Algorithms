@@ -2,26 +2,30 @@ package lesson_5.homeWork5;
 
 public class Degree {
 
-
     public static void main(String[] args) {
-        System.out.println(raiseToDegree(3, 4));
+        System.out.println(raiseToDegree(3, -2));
+        System.out.println(raiseToDegree(3, 2));
+        System.out.println(raiseToDegree(5, 0));
+        System.out.println(raiseToDegree(2, 3));
+        System.out.println(raiseToDegree(0, 7));
+//        System.out.println(raiseToDegree(0, -9));
     }
 
-    private static int raiseToDegree(int base, int degree) {
+    private static double raiseToDegree(double base, int degree) {
         if ( base == 0 ) {
+            if ( degree > 0 ) {
             return 0;
+            } else {
+                throw new IllegalArgumentException("Invalid degree " + degree + " for base " + base);
+            }
         }
-        if (degree == 0) {
-            return 1;
-        }
+
         if ( degree < 0 ) {
-            throw new  RuntimeException("Неподдерживаемая операция");
-        }
-        if (degree % 2 == 1) {
+            return  1 / (base * raiseToDegree(base, Math.abs(degree) - 1));
+        } else if ( degree > 0 ) {
             return raiseToDegree(base, degree - 1) * base;
         } else {
-            int res = raiseToDegree (base, degree/2);
-            return res * res;
+            return 1;
         }
     }
 }
