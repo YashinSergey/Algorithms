@@ -34,7 +34,7 @@ public class TreeApp {
         System.out.println("Balanced Tree Count = " + ((balancedTreeCount / (treeCount * 1.0)) * 100) + "%");
     }
 
-    private static void initTree(Random rand, int nodeCount, int maxValue, Tree theTree) {
+    private static void initTree(Random rand, int nodeCount, int maxValue, Tree<Integer> theTree) {
         for (int j = 0; j < nodeCount; j++) {
             theTree.add(rand.nextInt(maxValue * 2 + 1) - maxValue);
         }
