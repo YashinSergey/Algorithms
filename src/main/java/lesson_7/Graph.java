@@ -45,6 +45,54 @@ public class Graph {
         }
     }
 
+    public Stack<String> findShortestWay(String startPoint, String finishPoint) {
+        int startIndex = indexOf(startPoint);
+        int finishIndex = indexOf(finishPoint);
+        if(startIndex == -1 || finishIndex == -1) {
+            throw new IllegalArgumentException("Wrong name of start point ore finish point");
+        }
+
+        Queue<Vertex> queue = new LinkedList<>();
+
+        Vertex vertex = vertexList.get(startIndex);
+        visitVertex(queue, vertex);
+
+        while (!queue.isEmpty()) {
+            vertex = getNearUnvisitedVertex(queue.peek());
+            if (vertex == null) {
+                queue.remove();
+            } else {
+                visitVertex(queue,vertex);
+                vertex.setPreviousVertex(queue.peek());
+                if (vertex.getLabel().equals(finishPoint)){
+                    Stack<String> stack = new Stack<>();
+                    Vertex current = vertex;
+                    while (current != null) {
+                        stack.push(current.getLabel());
+                        current = current.getPreviousVertex();
+                    }
+                    return stack;
+                }
+            }
+        }
+        resetVertexState();
+        return null;
+    }
+
+    public void printShortestWay(Graph graph, String start, String finish) {
+        Stack<String> way = graph.findShortestWay(start, finish);
+        StringBuilder sb = new StringBuilder();
+        boolean isFirst = true;
+        while (!way.isEmpty()) {
+            if (!isFirst) {
+                sb.append(" -> ");
+            }
+            isFirst = false;
+            sb.append(way.pop());
+        }
+        System.out.println(sb);
+    }
+
     private int indexOf(String label) {
         for (int i = 0; i < size; i++) {
             if (vertexList.get(i).getLabel().equals(label)) {
@@ -145,7 +193,7 @@ public class Graph {
     }
 
     private void visitVertex(Queue<Vertex> queue, Vertex vertex) {
-        displayVertex(vertex);
+//        displayVertex(vertex);
         queue.add(vertex);
         vertex.setVisited(true);
     }
