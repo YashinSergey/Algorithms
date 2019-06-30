@@ -7,6 +7,17 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E> { // ?
     private Node<E> root;
     private int size;
 
+    private int maxLevel;
+
+    public TreeImpl() {
+        this(0);
+    }
+
+    public TreeImpl(int maxLevel) {
+        this.maxLevel = maxLevel;
+    }
+
+
     @Override
     public boolean add(E value) {
         Node<E> newNode = new Node<>(value);
@@ -249,5 +260,21 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E> { // ?
             nBlanks /= 2;
         }
         System.out.println("................................................................");
+    }
+
+    @Override
+    public boolean isBalanced() {
+        return isBalanced(root);
+    }
+
+    private boolean isBalanced(Node node) {
+        return (node == null) ||
+                isBalanced(node.getLeft()) &&
+                        isBalanced(node.getRight()) &&
+                        Math.abs(height(node.getLeft()) - height(node.getRight())) <= 1;
+    }
+
+    private int height(Node node) {
+        return node == null ? 0 : 1 + Math.max(height(node.getLeft()), height(node.getRight()));
     }
 }
