@@ -4,10 +4,42 @@ public class Main_7 {
 
     public static void main(String[] args) {
 //        testGraph();
-
 //        testDfs();
+//        testBfs();
 
-        testBfs();
+        Graph graph = new Graph(10);
+        graph.addVertex("Москва");
+        graph.addVertex("Тула");
+        graph.addVertex("Рязань");
+        graph.addVertex("Калуга");
+        graph.addVertex("Липецк");
+        graph.addVertex("Тамбов");
+        graph.addVertex("Орел");
+        graph.addVertex("Саратов");
+        graph.addVertex("Курск");
+        graph.addVertex("Воронеж");
+
+        graph.addEdges("Москва", "Тула", "Рязань", "Калуга");
+        graph.addEdges("Тула", "Москва", "Липецк");
+        graph.addEdges("Рязань", "Москва", "Тамбов");
+        graph.addEdges("Калуга", "Москва", "Орел");
+        graph.addEdges("Липецк", "Тула", "Воронеж");
+        graph.addEdges("Тамбов", "Рязань", "Саратов");
+        graph.addEdges("Орел", "Калуга", "Курск");
+        graph.addEdges("Саратов", "Тамбов", "Воронеж");
+        graph.addEdges("Курск", "Орел", "Воронеж");
+        graph.addEdges("Воронеж", "Липецк", "Саратов", "Курск");
+
+//        Stack<String> shortestWay = graph.findShortestWay("Москва", "Воронеж");
+//        for (String s : shortestWay) {
+//            System.out.print(s + " -> ");
+//        }
+
+
+        graph.printShortestWay(graph,"Москва", "Воронеж");
+//        graph.printShortestWay(graph,"Москва", "Саратов");
+
+
     }
 
     private static void testBfs() {
