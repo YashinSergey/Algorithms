@@ -1,10 +1,13 @@
 package lesson_8;
 
+import lesson_8.homeWork.MyHashTableImpl;
+
 public class Main_8 {
 
     public static void main(String[] args) {
 //        HashTable hashTable = new HashTableImpl(5);
-        HashTable hashTable = new DoubleHashTableImpl(5);
+//        HashTable hashTable = new DoubleHashTableImpl(5);
+        HashTable hashTable = new MyHashTableImpl(5);
 
         hashTable.put(new Item(1, "Orange"), 150);
         hashTable.put(new Item(77, "Banana"), 111);
